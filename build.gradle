@@ -15,6 +15,10 @@ dependencies {
     implementation group: 'org.mongodb', name: 'mongo-java-driver', version: '3.12.11'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.5.3'
 
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.31'
+
+
 }
 
 test {
