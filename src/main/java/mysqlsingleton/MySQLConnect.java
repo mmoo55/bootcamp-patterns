@@ -35,9 +35,6 @@ public class MySQLConnect {
             instance = new MySQLConnect();
             instance.OpenMySQLCLient();
         }
-        else {
-            System.out.println("FALLO DE CONEXIÓN");
-        }
 
         return instance;
     }
