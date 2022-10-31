@@ -1,8 +1,6 @@
 package mysqlsingleton;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MySQLConnect {
     public static Connection connect;
@@ -38,10 +36,34 @@ public class MySQLConnect {
             instance.OpenMySQLCLient();
         }
         else {
-            System.out.println("FALLO");
+            System.out.println("FALLO DE CONEXIÓN");
         }
 
         return instance;
+    }
+
+    public void getData(){
+        PreparedStatement statement;
+        ResultSet result;
+
+        String query = "SELECT count(id_persona) FROM persona";
+
+        try {
+            statement = connect.prepareStatement(query);
+            result = statement.executeQuery();
+
+            if (result.next())
+            {
+                String count = result.getString("count(id_persona)");
+
+                System.out.println("El conteo es: " + count);
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Error al abrir Conexión: " + ex.getMessage());
+        }
+
     }
 
 }
